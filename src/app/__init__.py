@@ -13,3 +13,8 @@ db.create_tables([
     User,
     Color
 ], safe=True)
+
+
+from app.controller.question import question
+
+app.register_blueprint(question)
