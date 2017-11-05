@@ -44,7 +44,7 @@ def questionnaire_results(userid):
     try:
         user = User.get(User.id == userid)
     except DoesNotExist:
-        return Response(status=404)
+        return Response(status=401)
 
     user.color_id = mbti_results.color
     user.save()
