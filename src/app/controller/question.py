@@ -4,6 +4,7 @@ from peewee import DoesNotExist
 from flask import Blueprint, request, Response
 
 from app.core.mbti import MBTI
+from app.core.kva import KVA
 from app.model.user import User
 from app.model.questions import Question
 from app.model.answer import Answer
@@ -38,7 +39,7 @@ def fetch_lp_questionnaire():
 
 
 @question.route('/mbti/questionnaire/<userid>', methods=['POST'])
-def questionnaire_results(userid):
+def questionnaire_mbti_results(userid):
     mbti_results = MBTI(request.form.lists())
 
     try:
@@ -56,8 +57,9 @@ def questionnaire_results(userid):
         }
     )
 
-@question.route('/lp/questions/<userid', methods=['POST'])
-def questionnaire_results(userid):
+
+@question.route('/lp/questions/<userid>', methods=['POST'])
+def questionnaire_lp_results(userid):
     KVA_results = KVA(request.form.lists())
 
     try:
