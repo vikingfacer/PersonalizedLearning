@@ -32,3 +32,6 @@ app.register_blueprint(question)
 
 from app.controller.user import user
 app.register_blueprint(user)
+
+from app.controller.course import course
+app.register_blueprint(course)
