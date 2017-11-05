@@ -1,15 +1,14 @@
 import json
 
-from peewee import DoesNotExist
-from flask import Blueprint, request, Response
+from flask import Blueprint
 
-from app.model.course import course
+from app.model.course import Course
 
 course = Blueprint('course', __name__)
 
 
 @course.route('/course/<subject>')
 def course_search(subject):
-	return json.dumps(
-        [course.to_dict() for course in course.select().where(course.title == subject)]
+    return json.dumps(
+        [course.to_dict() for course in Course.select().where(Course.subject == subject)]
     )

@@ -54,7 +54,8 @@ def questionnaire_mbti_results(userid):
     return json.dumps(
         {
             "mbti_value": mbti_results.mbti_value,
-            "color": mbti_results.color
+            "color": mbti_results.color,
+            "mbti_key": mbti_results.mbti_key
         }
     )
 
