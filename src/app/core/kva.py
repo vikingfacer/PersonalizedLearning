@@ -2,7 +2,7 @@
 
 class KVA(object):
 	"""KVA personality test class. takes a sequence of tuples """
-	
+
 	def __init__(self, Sequence):
 		self.sequence = Sequence
 		self.answers = {'K': 0,
@@ -26,7 +26,7 @@ class KVA(object):
 
 	def __returnPType(self):
 		Max = 0
-		# answers is only 3 elements long 
+		# answers is only 3 elements long
 		for each in self.answers:
 			if self.answers[each] > Max:
 				self.Ptype = each

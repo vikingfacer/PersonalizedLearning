@@ -11,6 +11,7 @@ class User(Model, UserMixin):
     password = CharField()
     email = CharField(unique=True)
     mbti_color_id = ForeignKeyField(Color, to_field='id', related_name='mbti_user', null=True)
+    mbti_value = CharField()
     lp_color_id = ForeignKeyField(Color, to_field='id', related_name='lp_user', null=True)
 
     def __str__(self):
