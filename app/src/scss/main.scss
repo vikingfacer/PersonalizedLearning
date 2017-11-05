@@ -1,0 +1,105 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+
+//$primary: #0469b1;
+$primary: #0074D9;
+
+@import "../../node_modules/bulma/sass/utilities/functions";
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+$navbar-background-color: $light;
+
+@import "../../node_modules/bulma/bulma";
+
+$border: #dbdbdb;
+
+$red: #FF4136;
+$blue: #0074D9;
+$orange: #FF851B;
+$green: #2ECC40;
+$purple: #B10DC9;
+$navy: #001F3F;
+$yellow: #FFDC00;
+
+
+* {
+   font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+   background: $light;
+   height: 100%;
+}
+
+#search .title {
+   font-size: $size-5;
+}
+#search .subtitle {   
+   font-size: $size-6;
+}
+
+.is-flex-col {
+   display: flex;
+   flex-direction: column;
+}
+
+.has-border-bottom {
+   border-bottom: 1px $border solid;
+}
+
+// Colors
+
+.bcolor-1 {
+   background: linear-gradient(90deg, #FFF 95%, $red 5%) !important;
+}
+.bcolor-2 {
+   background: linear-gradient(90deg, #FFF 95%, $blue 5%) !important;
+}
+.bcolor-3 {
+   background: linear-gradient(90deg, #FFF 95%, $orange 5%) !important;
+}
+.bcolor-4 {
+   background: linear-gradient(90deg, #FFF 95%, $green 5%) !important;
+}
+.bcolor-5 {
+   background: linear-gradient(90deg, #FFF 95%, $purple 5%) !important;
+}
+.bcolor-6 {
+   background: linear-gradient(90deg, #FFF 95%, $navy 5%) !important;
+}
+.bcolor-7 {
+   background: linear-gradient(90deg, #FFF 95%, $yellow 5%) !important;
+}
+
+.color-1 {
+   background: $red !important;
+   color: $light !important;
+}
+.color-2,
+.is-color-blue {
+   background: $blue !important;
+   color: $light !important;
+}
+.color-3 {
+   background: $orange !important;
+   color: $light !important;
+}
+.color-4 {
+   background: $green !important;
+   color: $light !important;
+}
+.color-5 {
+   background: $purple !important;
+   color: $light !important;
+}
+.color-6 {
+   background: $navy !important;
+   color: $light !important;
+}
+.color-7 {
+   background: $yellow !important;
+   color: $light !important;
+}
+
+.box .title {
+   color: $dark !important;
+}

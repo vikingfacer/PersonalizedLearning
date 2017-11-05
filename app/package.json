@@ -1,0 +1,30 @@
+{
+  "name": "hackathon",
+  "description": "hackathon project",
+  "version": "1.0.0",
+  "author": "Michael Nelson <ralphpig@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "gulp development",
+    "build:production": "gulp production",
+    "connect": "ssh -i ~/.ssh/Default.pem root@172.31.16.44"
+  },
+  "dependencies": {
+    "bulma": "^0.6.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.4.4",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "gulp": "^3.9.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0"
+  }
+}
