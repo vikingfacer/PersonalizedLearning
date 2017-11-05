@@ -27,6 +27,9 @@ def questionnaire_results(userid):
     except DoesNotExist:
         return Response(status=404)
 
+    user.color_id = mbti_results.color
+    user.save()
+    
     return json.dumps(
         {
             "mbti_value": mbti_results.mbti_value,
