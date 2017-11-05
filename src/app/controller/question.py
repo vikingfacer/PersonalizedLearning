@@ -6,7 +6,7 @@ from flask import Blueprint, request, Response
 from app.core.mbti import MBTI
 from app.model.user import User
 from app.model.questions import Question
-from app.model.response import Response as Answer
+from app.model.answer import Answer
 
 
 question = Blueprint('question', __name__)
