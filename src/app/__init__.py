@@ -10,12 +10,14 @@ from app.model.color import Color
 from app.model.user import User
 from app.model.professor import Professor
 from app.model.course import Course
+from app.model.questions import Question
 
 db.create_tables([
     Color,
     User,
     Course,
-    Professor
+    Professor,
+    Question
 ], safe=True)
 
 

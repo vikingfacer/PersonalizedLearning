@@ -5,30 +5,16 @@ from flask import Blueprint, request, Response
 
 from app.core.mbti import MBTI
 from app.model.user import User
+from app.model.questions import Question
 
 
 question = Blueprint('question', __name__)
 
 
-# TODO: Use actual model
-class Question():
-
-    def __dict__(self):
-        return {
-            "question": "What is your name"
-        }
-
-    @staticmethod
-    def get_mbti():
-        questions = [Question(), Question(), Question()]
-
-        return [obj.__dict__() for obj in questions]
-
-
 @question.route('/mbti/questions')
 def fetch_mbti_questionnaire():
     return json.dumps(
-        Question.get_mbti()
+        [question.to_dict() for question in Question.select()]
     )
 
 
