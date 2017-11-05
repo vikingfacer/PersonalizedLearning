@@ -38,7 +38,7 @@ def fetch_lp_questionnaire():
     return json.dumps(lp_questions)
 
 
-@question.route('/mbti/questionnaire/<userid>', methods=['POST'])
+@question.route('/questions/mbti/<userid>', methods=['POST'])
 def questionnaire_mbti_results(userid):
     mbti_results = MBTI(request.form.lists())
 
@@ -48,6 +48,7 @@ def questionnaire_mbti_results(userid):
         return Response(status=404)
 
     user.mbti_color_id = mbti_results.color
+    user.mbti_value = mbti_results.mbti_key
     user.save()
 
     return json.dumps(
@@ -58,7 +59,7 @@ def questionnaire_mbti_results(userid):
     )
 
 
-@question.route('/lp/questions/<userid>', methods=['POST'])
+@question.route('/questions/lp/<userid>', methods=['POST'])
 def questionnaire_lp_results(userid):
     KVA_results = KVA(request.form.lists())
 
@@ -68,6 +69,7 @@ def questionnaire_lp_results(userid):
         return Response(status=404)
 
     user.lp_color_id = KVA_results.color
+    user.lp_value = KVA_results.key
     user.save()
 
     return json.dumps(
@@ -76,15 +78,3 @@ def questionnaire_lp_results(userid):
             "color": KVA_results.color
         }
     )
-
-
-
-
-
-
-
-
-
-
-
-

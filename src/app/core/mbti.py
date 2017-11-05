@@ -6,37 +6,61 @@ class MBTI:
         0b1111,
         0b1110,
         0b0111,
-        0b0110
+        0b0110,
     ]
 
     BLUE = [
         0b1011,
         0b1010,
         0b0010,
-        0b0011
+        0b0011,
     ]
 
     ORANGE = [
         0b1001,
         0b0001,
         0b0000,
-        0b1000
+        0b1000,
     ]
 
     GREEN = [
         0b1101,
         0b1100,
         0b0101,
-        0b0100
+        0b0100,
     ]
+
+    MBTI_CODES = {
+        0b1111: "ENTJ",
+        0b1110: "ENTP",
+        0b0111: "INTJ",
+        0b0110: "INTP",
+
+        0b1011: "ESTJ",
+        0b1010: "ISFJ",
+        0b0010: "ISFP",
+        0b0011: "ISTJ",
+
+        0b1001: "ESFJ",
+        0b0001: "ISFJ",
+        0b0000: "ISFP",
+        0b1000: "ESFP",
+
+        0b1101: "ENFJ",
+        0b1100: "ENFP",
+        0b0101: "INFJ",
+        0b0100: "INFP",
+    }
 
     def __init__(self, questionnaire):
         self.questionnaire = questionnaire
         self.mbti_value = None
         self.color = None
+        self.mbti_key = None
 
         self.__compute_mbti()
         self.color = self.__color()
+        self.mbti_key = self.___key()
 
     def __compute_mbti(self):
         EI_value = self.__compute(islice(self.questionnaire, 0, 5))
@@ -50,6 +74,9 @@ class MBTI:
         mbti_value += JP_value << 3
 
         self.mbti_value = mbti_value
+
+    def ___key(self):
+        return MBTI.MBTI_CODES[self.mbti_value]
 
     def __color(self):
         if self.mbti_value is None:
