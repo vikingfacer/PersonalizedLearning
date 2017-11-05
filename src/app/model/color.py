@@ -3,6 +3,7 @@ from peewee import *
 from app import db
 import json 
 
+
 class Color(Model):
     color_value = CharField(6)
 
