@@ -1,4 +1,5 @@
 from peewee import *
+import json 
 
 from app import db
 from app.model.color import Color
@@ -12,4 +13,13 @@ class Professor(Model):
         database = db
 
     def __str__(self):
-        return "<professor>"
+        return json.dumps(self.__dict__["_data"])
+
+    def __repr__(self):
+        return self.__str__()
+
+    def to_dict(self):
+        JsonData = dict()
+        JsonData.update(self.__dict__["_data"])
+        JsonData.update(self.__dict__["_obj_cache"])
+        return JsonData

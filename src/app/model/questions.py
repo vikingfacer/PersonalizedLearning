@@ -4,16 +4,19 @@ from app import db
 
 class Question(Model):
     """docstring for Questions"""
-    content = textField()
-    test_type = textField()
-    group = textField()
+    content = TextField()
+    test_type = TextField()
+    group = TextField()
 
     def __str__(self):
-        return "<Question>"
+        return json.dumps(self.__dict__["_data"])
 
     def __repr__(self):
-    return "<Question>"
+        return self.__str__()
 
-    
+    def to_dict(self):
+        return self.__dict__["_data"]
+
+
     class Meta:
         database = db
