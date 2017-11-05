@@ -37,8 +37,8 @@ class MBTI:
         0b0110: "INTP",
 
         0b1011: "ESTJ",
-        0b1010: "ISFJ",
-        0b0010: "ISFP",
+        0b1010: "ESTJ",
+        0b0010: "ISTP",
         0b0011: "ISTJ",
 
         0b1001: "ESFJ",
@@ -68,10 +68,10 @@ class MBTI:
         TF_value = self.__compute(islice(self.questionnaire, 0, 5))
         JP_value = self.__compute(islice(self.questionnaire, 0, 5))
 
-        mbti_value = EI_value
-        mbti_value += NS_value << 1
-        mbti_value += TF_value << 2
-        mbti_value += JP_value << 3
+        mbti_value = EI_value << 3
+        mbti_value += NS_value << 2
+        mbti_value += TF_value << 1
+        mbti_value += JP_value
 
         self.mbti_value = mbti_value
 
