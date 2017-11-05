@@ -10,7 +10,8 @@ class User(Model, UserMixin):
     name = CharField()
     password = CharField()
     email = CharField(unique=True)
-    color_id = ForeignKeyField(Color, to_field='id', related_name='user', null=True)
+    mbti_color_id = ForeignKeyField(Color, to_field='id', related_name='mbti_user', null=True)
+    lp_color_id = ForeignKeyField(Color, to_field='id', related_name='lp_user', null=True)
 
     def __str__(self):
         return json.dumps(self.__dict__["_data"])
