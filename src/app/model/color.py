@@ -14,3 +14,6 @@ class Color(Model):
 
     def __repr__(self):
         return "<Color>"
+
+    def to_dict(self):
+        return self.__dict__["_data"]
