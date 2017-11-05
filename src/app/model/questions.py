@@ -13,3 +13,7 @@ class Question(Model):
 
     def __repr__(self):
     return "<Question>"
+
+    
+    class Meta:
+        database = db
