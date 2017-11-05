@@ -11,3 +11,6 @@ class Color(Model):
 
     def __str__(self):
         return "<Color>"
+
+    def __repr__(self):
+        return "<Color>"
