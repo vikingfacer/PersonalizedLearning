@@ -1,2 +1,1 @@
-bin/* 
-lib/*
+*.db __pycache__
