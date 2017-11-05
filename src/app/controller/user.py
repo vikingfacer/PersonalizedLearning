@@ -17,7 +17,9 @@ def login_user():
         return Response(status=404)
 
     if current_user.password == request.form.get("password"):
-        return Response(status=200)
+        user_dict = current_user.to_dict()
+        user_dict.pop("password")
+        return Response(json.dumps(user_dict), status=200, mimetype='json/type')
     else:
         return Response(status=404)
 

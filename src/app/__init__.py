@@ -13,7 +13,7 @@ from app.model.user import User
 from app.model.professor import Professor
 from app.model.course import Course
 from app.model.questions import Question
-from app.model.response import Response
+from app.model.answer import Answer
 
 db.create_tables([
     Color,
@@ -21,7 +21,7 @@ db.create_tables([
     Course,
     Professor,
     Question,
-    Response
+    Answer
 ], safe=True)
 
 
