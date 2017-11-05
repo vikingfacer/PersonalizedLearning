@@ -4,6 +4,7 @@ from peewee import DoesNotExist
 from flask import Blueprint, request, Response
 
 from app.core.mbti import MBTI
+from app.core.kva import KVA
 from app.model.user import User
 from app.model.questions import Question
 from app.model.answer import Answer
@@ -37,8 +38,8 @@ def fetch_lp_questionnaire():
     return json.dumps(lp_questions)
 
 
-@question.route('/mbti/questionnaire/<userid>', methods=['POST'])
-def questionnaire_results(userid):
+@question.route('/questions/mbti/<userid>', methods=['POST'])
+def questionnaire_mbti_results(userid):
     mbti_results = MBTI(request.form.lists())
 
     try:
@@ -47,6 +48,7 @@ def questionnaire_results(userid):
         return Response(status=404)
 
     user.mbti_color_id = mbti_results.color
+    user.mbti_value = mbti_results.mbti_key
     user.save()
 
     return json.dumps(
@@ -56,8 +58,9 @@ def questionnaire_results(userid):
         }
     )
 
-@question.route('/lp/questions/<userid', methods=['POST'])
-def questionnaire_results(userid):
+
+@question.route('/questions/lp/<userid>', methods=['POST'])
+def questionnaire_lp_results(userid):
     KVA_results = KVA(request.form.lists())
 
     try:
@@ -66,6 +69,7 @@ def questionnaire_results(userid):
         return Response(status=404)
 
     user.lp_color_id = KVA_results.color
+    user.lp_value = KVA_results.key
     user.save()
 
     return json.dumps(
@@ -74,16 +78,3 @@ def questionnaire_results(userid):
             "color": KVA_results.color
         }
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
