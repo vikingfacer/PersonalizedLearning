@@ -9,7 +9,7 @@ class User(Model, UserMixin):
     name = CharField()
     password = CharField()
     email = CharField(unique=True)
-    color_id = ForeignKeyField(Color, to_field='id', related_name='user')
+    color_id = ForeignKeyField(Color, to_field='id', related_name='user', null=True)
 
     class Meta:
         database = db

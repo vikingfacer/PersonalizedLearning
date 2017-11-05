@@ -18,3 +18,6 @@ db.create_tables([
 from app.controller.question import question
 
 app.register_blueprint(question)
+
+from app.controller.user import user
+app.register_blueprint(user)
