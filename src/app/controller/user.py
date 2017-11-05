@@ -1,6 +1,6 @@
 import json
 
-from peewee import DoesNotExist
+from peewee import DoesNotExist, IntegrityError
 from flask import Blueprint, request, Response
 
 from app.model.user import User
@@ -32,7 +32,10 @@ def create_user():
     new_user.password = request.form.get("password")
     new_user.color_id = None
 
-    new_user.save()
+    try:
+        new_user.save()
+    except IntegrityError:
+        return Response(status=409)
 
     return Response(status=200)
 
