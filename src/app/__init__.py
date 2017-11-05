@@ -1,21 +1,27 @@
 from flask import Flask
-from peewee import SqliteDatabase
+from peewee import MySQLDatabase
 
 import config
 
 app = Flask(__name__)
-db = SqliteDatabase(config.DB_NAME)
+db = MySQLDatabase(
+    database=config.DB_NAME, host=config.DB_LOCATION, port=config.DB_PORT,
+    user=config.DB_USERNAME, passwd=config.DB_PASSWORD)
 
 from app.model.color import Color
 from app.model.user import User
 from app.model.professor import Professor
 from app.model.course import Course
+from app.model.questions import Question
+from app.model.response import Response
 
 db.create_tables([
     Color,
     User,
     Course,
-    Professor
+    Professor,
+    Question,
+    Response
 ], safe=True)
 
 
