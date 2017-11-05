@@ -14,14 +14,14 @@ def login_user():
     try:
         current_user = User.get(User.email == request.form.get("email"))
     except DoesNotExist:
-        return Response(status=404)
+        return Response(status=401)
 
     if current_user.password == request.form.get("password"):
         user_dict = current_user.to_dict()
         user_dict.pop("password")
         return Response(json.dumps(user_dict), status=200, mimetype='json/type')
     else:
-        return Response(status=404)
+        return Response(status=401)
 
 
 @user.route('/user', methods=['POST'])
