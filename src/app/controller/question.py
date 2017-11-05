@@ -55,3 +55,34 @@ def questionnaire_results(userid):
             "color": mbti_results.color
         }
     )
+
+@question.route('/lp/questions/<userid', methods=['POST'])
+def questionnaire_results(userid):
+    KVA_results = KVA(request.form.lists())
+
+    try:
+        user = User.get(User.id == userid)
+    except DoesNotExist:
+        return Response(status=404)
+
+    user.lp_color_id = KVA_results.color
+    user.save()
+
+    return json.dumps(
+        {
+            "lp_value": KVA_results.color,
+            "color": KVA_results.color
+        }
+    )
+
+
+
+
+
+
+
+
+
+
+
+
