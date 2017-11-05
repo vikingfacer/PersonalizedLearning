@@ -31,8 +31,11 @@ def fetch_lp_questionnaire():
     lp_questions = [question.to_dict() for question in Question.select().where(Question.test_type == "LP")]
 
     for question in lp_questions:
-        question["answers"] = [answer.to_dict() for answer in Answer.select().where()]
-        
+        question["answers"] = [
+            answer.to_dict() for answer in Answer.select().where(Answer.question_id == question["id"])
+        ]
+    return json.dumps(lp_questions)
+
 
 @question.route('/mbti/questionnaire/<userid>', methods=['POST'])
 def questionnaire_results(userid):

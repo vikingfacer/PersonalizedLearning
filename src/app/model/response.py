@@ -1,3 +1,4 @@
+import json
 from peewee import *
 
 from app import db
@@ -12,4 +13,13 @@ class Response(Model):
         database = db
 
     def __str__(self):
-        return "<Response>"
+        return json.dumps(self.__dict__["_data"])
+
+    def __repr__(self):
+        return self.__str__()
+
+    def to_dict(self):
+        JsonData = dict()
+        JsonData.update(self.__dict__["_data"])
+        JsonData.update(self.__dict__["_obj_cache"])
+        return JsonData
