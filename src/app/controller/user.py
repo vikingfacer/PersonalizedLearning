@@ -18,6 +18,8 @@ def login_user():
 
     if current_user.password == request.form.get("password"):
         return Response(status=200)
+    else:
+        return Response(status=404)
 
 
 @user.route('/user', methods=['POST'])
@@ -31,3 +33,13 @@ def create_user():
     new_user.save()
 
     return Response(status=200)
+
+
+@user.route('/user/<userid>', methods=['GET'])
+def get_user(userid):
+    try:
+        new_user = User.get(User.id == userid)
+    except DoesNotExist:
+        return Response(status=404)
+
+    return json.dumps(new_user.to_dict())

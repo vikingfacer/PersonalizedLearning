@@ -33,7 +33,7 @@ def fetch_mbti_questionnaire():
 
 
 @question.route('/mbti/questionnaire/<userid>', methods=['POST'])
-def questionnarie_results(userid):
+def questionnaire_results(userid):
     mbti_results = MBTI(request.form.lists())
 
     try:
