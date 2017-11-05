@@ -1,8 +1,12 @@
 # Personalized Learning
 
 [**Demo**](http://ec2-35-162-44-11.us-west-2.compute.amazonaws.com/)
-`Email: demo`
-`Password: demo`
+```
+Email: demo
+Password: demo
+```
+
+***
 
 Our Hackathon idea is called Personalized Learning, with the goal to create a personalized learning environment for every student across the nation. To do this we plan on utilizing individual students’ personality and preferred learning styles to assist in their class registration process. 
 
